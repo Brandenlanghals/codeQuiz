@@ -1,3 +1,4 @@
+//list of variables
 var startBtn = document.getElementById("startBtn");
 var submitBtn = document.querySelector("button.submitBtn")
 var secondsLeft = (questions.length * 20 + 1);
@@ -61,19 +62,19 @@ function displayScore() {
     userScoreElement.textContent = "FINAL SCORE: " + secondsLeft + ".";
 }
 
-// Event Listeners for Main Buttons
+// event listeners for buttons
 startBtn.addEventListener("click", startTimer);
 submitBtn.addEventListener("click", function (event) {
     event.stopPropagation();
     addScore();
     
-    window.location.href = './highscores.html'
+    window.location.href = 'highscores.html'
 });
 
 function addScore () {
     userNameInput = document.getElementById("userName").value
     
-    // create a new object with name and score keys
+    // storage for scores object
 var newScore = {
         name: userNameInput,
         score: secondsLeft
@@ -100,7 +101,7 @@ function showFeedback(){
 answerChoices.addEventListener("click", function (event) {
     var pElement = document.getElementsByClassName("feedback")[0]
     
-    // evaluation of user's answer choices & feedback
+    // if/else for answer results
     if (answer === event.target.textContent) {   
         pElement.innerHTML = "YES!";
         setTimeout(hideFeedback,1225);
